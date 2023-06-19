@@ -2,9 +2,7 @@
 
 package main
 
-import "fmt"
-
-func  GetEven (numbers []int) []int {
+func GetEven (numbers []int) []int {
 	var even []int
 	for _, num := range numbers {
 		if num % 2 == 0 {
@@ -13,3 +11,15 @@ func  GetEven (numbers []int) []int {
 	}
 	return even
 }
+
+func GetOdd (numbers []int) []int {
+	var odd []int
+	for _, num := range numbers {
+		if num % 2 != 0 {
+			odd = append(odd, num)
+		}
+	}
+	return odd
+}
+
+func GetPrime ()
