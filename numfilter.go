@@ -2,6 +2,10 @@
 
 package main
 
+import (
+	"math"
+)
+
 func GetEven (numbers []int) []int {
 	var even []int
 	for _, num := range numbers {
@@ -22,4 +26,42 @@ func GetOdd (numbers []int) []int {
 	return odd
 }
 
-func GetPrime ()
+func isPrime (number int) bool {
+	if number < 2 {
+		return false
+	}
+
+	limitation := int(math.Sqrt(float64(number)))
+
+	for  i := 2; i <= limitation; i++ {
+		if number % i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func GetPrime (numbers []int) []int {
+	var primeNumbers []int
+	for _, num := range numbers {
+		if isPrime(num) {
+			primeNumbers = append(primeNumbers, num)
+		}
+	}
+
+	return primeNumbers
+}
+
+func OddPrime (numbers []int) []int {
+	return GetOdd(GetPrime(numbers))
+}
+
+func GetFiveMultiple (numbers []int) []int {
+	var fiveMultiple []int
+	for _, num := range numbers {
+		if num % 5 == 0 {
+			fiveMultiple = append(fiveMultiple, num)
+		}
+	}
+	return fiveMultiple
+}
